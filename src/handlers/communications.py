@@ -4,5 +4,8 @@ communications_bp = Blueprint("communications", __name__, url_prefix="/communica
 
 @communications_bp.route('/email', methods=('POST'))
 def email():
-    if 1 == 1:
-        print("init")
+    print("email")
+
+@communications_bp.route('/sms', methods=('POST'))
+def sms():
+    print('sms')
