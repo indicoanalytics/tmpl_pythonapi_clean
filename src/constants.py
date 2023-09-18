@@ -1,4 +1,5 @@
 LOGGER_NAME = "gaia"
+LOGGER_SERVICE_NAME = "gaia-api"
 
 ENVIRONMENT_LOCAL = "local"
 ENVIRONEMENT_STG = "staging"
@@ -12,3 +13,5 @@ SEVERITY_INFO = "info"
 SEVERITY_WARNING = "warning"
 SEVERITY_ERROR = "error"
 SEVERITY_CRITICAL = "critical"
+
+ERR_OUT_OF_SYNC = "health check is out of sync"

@@ -1,1 +1,1 @@
-from .communications import communications_bp
+from .health import health_bp
