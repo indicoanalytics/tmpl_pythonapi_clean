@@ -1,2 +1,2 @@
-# communication_hub
-HUB to communications inside company
+# Python API Clean Architecture implementation
+
