@@ -3,7 +3,6 @@ from sqlalchemy import text
 from flask import current_app
 
 def get_one(query:str, params: dict = {}):
-    print(current_app)
     with current_app.config['DB'].connect() as conn:
         rs = conn.execute(text(query), **params)
         rs = rs.fetchone()

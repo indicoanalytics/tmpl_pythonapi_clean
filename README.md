@@ -8,6 +8,7 @@ A little introduction here...
 
 ## Dependencies
 
+* Flask 2.3
 * Sqlalchemy 1.4.31
 
 ## Setup
