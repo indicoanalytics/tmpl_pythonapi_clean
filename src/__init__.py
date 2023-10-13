@@ -10,17 +10,19 @@ from . import handlers
 
 
 def route(app: Flask):
-    api = Blueprint("api", __name__, url_prefix="/api")
-
-    app.register_blueprint(api)
     app.register_blueprint(handlers.health_bp)
 
-def set_default_handlers(app: Flask):
-    app.before_request(middleware.setup)
+    api = Blueprint("api", __name__, url_prefix="/api")
 
-    # TODO: Check how these work
+    if os.getenv("ENVIRONMENT") != constants.ENVIRONTMENT_PRD:
+        constants.ALLOWED_ORIGINS.extend(constants.ALLOWED_STG_ORIGINS)
+
+    CORS(api, methods=constants.ALLOWED_ORIGINS)
+
+    app.register_blueprint(api)
+
+def set_default_handlers(app: Flask):
     app.after_request(middleware.after_request)
-    app.process_response(middleware.process_response)
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)

@@ -9,7 +9,7 @@ A little introduction here...
 ## Dependencies
 
 * Flask 2.3
-* Sqlalchemy 1.4.31
+* Sqlalchemy 2.0.22
 
 ## Setup
 
