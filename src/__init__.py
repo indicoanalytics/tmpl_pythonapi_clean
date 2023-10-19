@@ -1,12 +1,10 @@
 import os
 
-from flask import Flask, Blueprint
+from flask import Blueprint, Flask
 from flask_cors import CORS
 from sqlalchemy import create_engine
 
-from . import constants
-from . import middleware
-from . import handlers
+from . import constants, handlers, middleware
 
 
 def route(app: Flask):
@@ -14,7 +12,7 @@ def route(app: Flask):
 
     api = Blueprint("api", __name__, url_prefix="/api")
 
-    if os.getenv("ENVIRONMENT") != constants.ENVIRONTMENT_PRD:
+    if os.getenv("ENVIRONMENT") != constants.ENVIRONMENT_PRD:
         constants.ALLOWED_ORIGINS.extend(constants.ALLOWED_STG_ORIGINS)
 
     CORS(api, methods=constants.ALLOWED_ORIGINS)
